@@ -1,0 +1,39 @@
+{
+  "name": "modernize-next-ts",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest"
+  },
+  "dependencies": {
+    "@emotion/cache": "latest",
+    "@emotion/react": "latest",
+    "@emotion/server": "latest",
+    "@emotion/styled": "latest",
+    "@mui/icons-material": "latest",
+    "@mui/lab": "^5.0.0-alpha.117",
+    "@mui/material": "latest",
+    "@next/font": "latest",
+    "@tabler/icons": "^2.1.2",
+    "@tabler/icons-react": "^2.1.1",
+    "apexcharts": "3.36.3",
+    "lodash": "^4.17.21",
+    "next": "latest",
+    "react": "latest",
+    "react-apexcharts": "^1.4.0",
+    "react-dom": "latest",
+    "react-helmet-async": "^1.3.0"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.191",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "eslint": "latest",
+    "eslint-config-next": "latest",
+    "typescript": "latest"
+  }
+}
