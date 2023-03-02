@@ -1,8 +1,8 @@
 # <a href="https://modernize-nextjs-free.netlify.app/?ref=5">Modernize-nextjs-free</a>
-Modernize Free Next 3 Admin Template with vuetify 3 + Typescript
+Modernize Free Next 13 Admin Template with Material Ui + Typescript
 
 <!-- Main image of Template -->
-<a target="_blank" href="https://adminmart.com/product/modernize-free-nuxtjs-admin-dashboard/?ref=5">
+<a target="_blank" href="https://adminmart.com/product/modernize-free-nextjs-admin-template/?ref=5">
   <img src="https://adminmart.com/wp-content/uploads/2023/03/modernize-free-next-js-admin-template.png" />
 </a>
 
