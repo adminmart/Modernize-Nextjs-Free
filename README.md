@@ -1,4 +1,4 @@
-# <a href="https://modernize-nuxtjs-free.netlify.app/?ref=5">Modernize-nextjs-free</a>
+# <a href="https://modernize-nextjs-free.netlify.app/?ref=5">Modernize-nextjs-free</a>
 Modernize Free Next 3 Admin Template with vuetify 3 + Typescript
 
 <!-- Main image of Template -->
@@ -34,17 +34,17 @@ npm run build
 <table>
 <thead>
 <tr>
-<th>Modernize NuxtJs Free Version</th>
-<th>Modernize NuxtJs Pro Version</th>
+<th>Modernize NextJs Free Version</th>
+<th>Modernize NextJs Pro Version</th>
 </tr>
 </thead>
 <tbody>
 <tr>
   <td>
-    <a href="https://modernize-nuxtjs-free.netlify.app/?ref=5">Live Preview</a>
+    <a href="https://modernize-nextjs-free.netlify.app/?ref=5">Live Preview</a>
   </td>
   <td>
-  <a href="https://modernize-nuxt.adminmart.com/?ref=5">Live Preview</a>
+  <a href="https://modernize-nextjs-main.netlify.app/?ref=5">Live Preview</a>
   </td>
 </tr>
 <tr>
@@ -69,6 +69,22 @@ npm run build
   </td>
   <td>
   Dashboard Figma Files
+  </td>
+</tr>
+<tr>
+  <td>
+  NextJs 13
+  </td>
+  <td>
+  NextJs 13
+  </td>
+</tr>
+<tr>
+  <td>
+  React 18+
+  </td>
+  <td>
+  React 18+
   </td>
 </tr>
 <tr>
@@ -113,7 +129,7 @@ npm run build
 </tr>
 <tr>
   <td>
-  -
+  Easy To Customize
   </td>
   <td>
   Easy To Customize
@@ -133,6 +149,14 @@ npm run build
   </td>
   <td>
   15+ Integrated Plugins
+  </td>
+</tr>
+<tr>
+  <td>
+  Material Ui
+  </td>
+  <td>
+  Material Ui
   </td>
 </tr>
 </tbody>
