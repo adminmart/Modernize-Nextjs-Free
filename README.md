@@ -208,7 +208,7 @@ npm run build
 </a>
 <p>
   Checkout our premium version of Modernize Next Js Admin Lite for lots more features and ready to use page templates.<br>
-  <a href="https://modernize-nextjs-main.netlify.app/?ref=5">Check Live Preview</a> | <a href="https://adminmart.com/product/modernize-nuxt-js-admin-dashboard/?ref=5">Download</a>
+  <a href="https://modernize-nextjs-main.netlify.app/?ref=5">Check Live Preview</a> | <a href="https://adminmart.com/product/modernize-next-js-admin-dashboard/?ref=5">Download</a>
 </p>
 
 
