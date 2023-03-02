@@ -49,10 +49,10 @@ npm run build
 </tr>
 <tr>
   <td>
-    <a href="https://adminmart.com/product/modernize-free-nuxtjs-admin-dashboard/?ref=5">Download Now</a>
+    <a href="https://adminmart.com/product/modernize-free-nextjs-admin-template/?ref=5">Download Now</a>
   </td>
   <td>
-    <a href="https://adminmart.com/product/modernize-nuxt-js-admin-dashboard/?ref=5">Purchase Now</a>
+    <a href="https://adminmart.com/product/modernize-next-js-admin-dashboard/?ref=5">Purchase Now</a>
   </td>
 </tr>
 <tr>
