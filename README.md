@@ -3,7 +3,7 @@ Modernize Free Next 3 Admin Template with vuetify 3 + Typescript
 
 <!-- Main image of Template -->
 <a target="_blank" href="https://adminmart.com/product/modernize-free-nuxtjs-admin-dashboard/?ref=5">
-  <img src="https://adminmart.com/wp-content/uploads/2023/02/modernize-free-nuxt-admin-dashboard-am.png" />
+  <img src="https://adminmart.com/wp-content/uploads/2023/03/modernize-free-next-js-admin-template.png" />
 </a>
 
 
@@ -203,8 +203,8 @@ npm run build
 
 # Upgrade to Premium version
 
-<a target="_blank" href="https://adminmart.com/product/modernize-nuxt-js-admin-dashboard/?ref=5">
-  <img src="https://adminmart.com/wp-content/uploads/2023/02/modernize-nuxt-js-admin-dashboard.png" alt="">
+<a target="_blank" href="https://adminmart.com/product/modernize-next-js-admin-dashboard?ref=5">
+  <img src="https://adminmart.com/wp-content/uploads/2023/03/modernize-next-js-admin-dashboard.png" alt="">
 </a>
 <p>
   Checkout our premium version of Modernize Nuxt Js Admin Lite for lots more features and ready to use page templates.<br>
