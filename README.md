@@ -1,5 +1,5 @@
-# <a href="https://modernize-nuxtjs-free.netlify.app/?ref=5">Modernize-nuxtjs-free</a>
-Modernize Free Nuxt 3 Admin Template with vuetify 3 + Typescript
+# <a href="https://modernize-nuxtjs-free.netlify.app/?ref=5">Modernize-nextjs-free</a>
+Modernize Free Next 3 Admin Template with vuetify 3 + Typescript
 
 <!-- Main image of Template -->
 <a target="_blank" href="https://adminmart.com/product/modernize-free-nuxtjs-admin-dashboard/?ref=5">
