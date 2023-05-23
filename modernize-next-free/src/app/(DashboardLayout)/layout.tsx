@@ -3,6 +3,11 @@ import { styled, Container, Box } from "@mui/material";
 import React, { useState } from "react";
 import Header from "@/app/(DashboardLayout)/layout/header/Header";
 import Sidebar from "@/app/(DashboardLayout)/layout/sidebar/Sidebar";
+import { baselightTheme } from "@/utils/theme/DefaultColors";
+import { ThemeProvider } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+import { CacheProvider, EmotionCache } from "@emotion/react";
+import createEmotionCache from "@/utils/createEmotionCache";
 
 const MainWrapper = styled("div")(() => ({
   display: "flex",
@@ -22,6 +27,9 @@ const PageWrapper = styled("div")(() => ({
 interface Props {
   children: React.ReactNode;
 }
+
+// Client-side cache, shared for the whole session of the user in the browser.
+const clientSideEmotionCache = createEmotionCache();
 
 export default function RootLayout({
   children,

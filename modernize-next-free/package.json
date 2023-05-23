@@ -16,7 +16,7 @@
     "@mui/icons-material": "latest",
     "@mui/lab": "^5.0.0-alpha.117",
     "@mui/material": "latest",
-    "@next/font": "latest",
+    
     "@tabler/icons-react": "^2.1.1",
     "@types/node": "20.2.3",
     "@types/react": "18.2.6",
