@@ -1,19 +1,22 @@
-import { useMediaQuery, Box, Drawer } from '@mui/material';
-import Logo from '../shared/logo/Logo';
-import SidebarItems from './SidebarItems';
-import { Upgrade } from './Updrade';
+import { useMediaQuery, Box, Drawer } from "@mui/material";
+import Logo from "../shared/logo/Logo";
+import SidebarItems from "./SidebarItems";
+import { Upgrade } from "./Updrade";
 
 interface ItemType {
-  isMobileSidebarOpen:  boolean;
-  onSidebarClose:  (event: React.MouseEvent<HTMLElement>) => void;
+  isMobileSidebarOpen: boolean;
+  onSidebarClose: (event: React.MouseEvent<HTMLElement>) => void;
   isSidebarOpen: boolean;
 }
 
-const Sidebar = ({isMobileSidebarOpen, onSidebarClose, isSidebarOpen }: ItemType) => {
-
+const Sidebar = ({
+  isMobileSidebarOpen,
+  onSidebarClose,
+  isSidebarOpen,
+}: ItemType) => {
   const lgUp = useMediaQuery((theme: any) => theme.breakpoints.up("lg"));
 
-  const sidebarWidth = '270px';
+  const sidebarWidth = "270px";
 
   if (lgUp) {
     return (
@@ -33,7 +36,7 @@ const Sidebar = ({isMobileSidebarOpen, onSidebarClose, isSidebarOpen }: ItemType
           PaperProps={{
             sx: {
               width: sidebarWidth,
-              boxSizing: 'border-box',
+              boxSizing: "border-box",
             },
           }}
         >
@@ -42,7 +45,7 @@ const Sidebar = ({isMobileSidebarOpen, onSidebarClose, isSidebarOpen }: ItemType
           {/* ------------------------------------------- */}
           <Box
             sx={{
-              height: '100%',
+              height: "100%",
             }}
           >
             {/* ------------------------------------------- */}
@@ -58,7 +61,6 @@ const Sidebar = ({isMobileSidebarOpen, onSidebarClose, isSidebarOpen }: ItemType
               <SidebarItems />
               <Upgrade />
             </Box>
-            
           </Box>
         </Drawer>
       </Box>
