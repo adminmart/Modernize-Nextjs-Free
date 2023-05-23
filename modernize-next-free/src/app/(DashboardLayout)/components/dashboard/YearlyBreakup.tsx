@@ -5,7 +5,7 @@ import { useTheme } from '@mui/material/styles';
 import { Grid, Stack, Typography, Avatar } from '@mui/material';
 import { IconArrowUpLeft } from '@tabler/icons-react';
 
-import DashboardCard from '../../../src/components/shared/DashboardCard';
+import DashboardCard from '@/app/(DashboardLayout)/components/shared/DashboardCard';
 
 const YearlyBreakup = () => {
   // chart color

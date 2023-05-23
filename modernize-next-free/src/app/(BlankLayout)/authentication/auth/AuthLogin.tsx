@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import Link from "next/link";
 
-import CustomTextField from "@/app/components/forms/theme-elements/CustomTextField";
+import CustomTextField from "@/app/(DashboardLayout)/components/forms/theme-elements/CustomTextField";
 
 interface loginType {
   title?: string;
@@ -85,7 +85,7 @@ const AuthLogin = ({ title, subtitle, subtext }: loginType) => (
         size="large"
         fullWidth
         component={Link}
-        href="/dashboard/"
+        href="/"
         type="submit"
       >
         Sign In

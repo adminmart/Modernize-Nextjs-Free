@@ -1,5 +1,5 @@
 import React from 'react';
-import DashboardCard from '../../../src/components/shared/DashboardCard';
+import DashboardCard from '@/app/(DashboardLayout)/components/shared/DashboardCard';
 import {
   Timeline,
   TimelineItem,
