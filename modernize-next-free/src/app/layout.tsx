@@ -1,14 +1,16 @@
 "use client";
-
+import { Plus_Jakarta_Sans } from 'next/font/google';
 import { baselightTheme } from "@/utils/theme/DefaultColors";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import { CacheProvider, EmotionCache } from "@emotion/react";
-import createEmotionCache from "@/utils/createEmotionCache";
 
 
-// Client-side cache, shared for the whole session of the user in the browser.
-const clientSideEmotionCache = createEmotionCache();
+// If loading a variable font, you don't need to specify the font weight
+const roboto = Plus_Jakarta_Sans({
+  weight:['300', '400', '500','600', '700'],
+  subsets: ['latin'],
+  display: 'swap',
+});
 
 
 
@@ -20,15 +22,15 @@ export default function RootLayout({
 }) {
   
   return (
-    <html lang="en">
-      <body>
-      <CacheProvider value={clientSideEmotionCache}>
+    <html lang="en" >
+      <body className={roboto.className}>
+      
         <ThemeProvider theme={baselightTheme}>
           {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
           <CssBaseline />
           {children}
         </ThemeProvider>
-        </CacheProvider>
+        
       </body>
     </html>
   );
