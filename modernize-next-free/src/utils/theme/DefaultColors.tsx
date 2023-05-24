@@ -1,4 +1,12 @@
 import { createTheme } from "@mui/material/styles";
+import { Plus_Jakarta_Sans } from "next/font/google";
+
+export const plus = Plus_Jakarta_Sans({
+  weight: ["300", "400", "500", "600", "700"],
+  subsets: ["latin"],
+  display: "swap",
+  fallback: ["Helvetica", "Arial", "sans-serif"],
+});
 
 const baselightTheme = createTheme({
   direction: "ltr",
@@ -57,24 +65,24 @@ const baselightTheme = createTheme({
     divider: "#e5eaef",
   },
   typography: {
-    fontFamily: "'Plus Jakarta Sans', sans-serif;",
+    fontFamily: plus.style.fontFamily,
     h1: {
       fontWeight: 600,
       fontSize: "2.25rem",
       lineHeight: "2.75rem",
-      fontFamily: "'Plus Jakarta Sans', sans-serif;",
+      fontFamily: plus.style.fontFamily,
     },
     h2: {
       fontWeight: 600,
       fontSize: "1.875rem",
       lineHeight: "2.25rem",
-      fontFamily: "'Plus Jakarta Sans', sans-serif;",
+      fontFamily: plus.style.fontFamily,
     },
     h3: {
       fontWeight: 600,
       fontSize: "1.5rem",
       lineHeight: "1.75rem",
-      fontFamily: "'Plus Jakarta Sans', sans-serif;",
+      fontFamily: plus.style.fontFamily,
     },
     h4: {
       fontWeight: 600,
@@ -127,10 +135,10 @@ const baselightTheme = createTheme({
     MuiCard: {
       styleOverrides: {
         root: {
-          borderRadius: '7px'
-        }
-      }
-    }
+          borderRadius: "7px",
+        },
+      },
+    },
   },
 });
 
