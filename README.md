@@ -1,4 +1,4 @@
-# <a href="https://modernize-nextjs-free.netlify.app/?ref=5">Modernize-nextjs-free</a>
+# <a href="https://modernize-nextjs-free.vercel.app/?ref=5">Modernize-nextjs-free</a>
 Modernize Free Next 13 Admin Template with Material Ui + Typescript
 
 <!-- Main image of Template -->
