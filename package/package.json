@@ -9,30 +9,29 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@emotion/cache": "latest",
-    "@emotion/react": "latest",
-    "@emotion/server": "latest",
-    "@emotion/styled": "latest",
-    "@mui/icons-material": "latest",
-    "@mui/lab": "^5.0.0-alpha.117",
-    "@mui/material": "latest",
-    
-    "@tabler/icons-react": "^2.1.1",
-    "@types/node": "20.2.3",
-    "@types/react": "18.2.6",
-    "@types/react-dom": "18.2.4",
-    "apexcharts": "3.36.3",
-    "eslint": "8.41.0",
-    "eslint-config-next": "13.4.3",
-    "lodash": "^4.17.21",
-    "next": "13.4.3",
+    "@emotion/cache": "11.11.0",
+    "@emotion/react": "11.11.1",
+    "@emotion/server": "11.11.0",
+    "@emotion/styled": "11.11.0",
+    "@mui/icons-material": "5.14.3",
+    "@mui/lab": "5.0.0-alpha.138",
+    "@mui/material": "5.14.3",
+    "@tabler/icons-react": "2.30.0",
+    "@types/node": "20.4.5",
+    "@types/react": "18.2.18",
+    "@types/react-dom": "18.2.7",
+    "apexcharts": "3.41.1",
+    "eslint": "8.46.0",
+    "eslint-config-next": "13.4.12",
+    "lodash": "4.17.21",
+    "next": "13.4.12",
     "react": "18.2.0",
-    "react-apexcharts": "^1.4.0",
+    "react-apexcharts": "1.4.1",
     "react-dom": "18.2.0",
-    "react-helmet-async": "^1.3.0",
-    "typescript": "5.0.4"
+    "react-helmet-async": "1.3.0",
+    "typescript": "5.1.6"
   },
   "devDependencies": {
-    "@types/lodash": "^4.14.194"
+    "@types/lodash": "4.14.196"
   }
 }
