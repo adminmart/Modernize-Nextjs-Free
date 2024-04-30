@@ -63,7 +63,7 @@ const Header = ({toggleMobileSidebar}: ItemType) => {
         <Box flexGrow={1} />
         <Stack spacing={1} direction="row" alignItems="center">
           <Button variant="contained" disableElevation color="primary" >
-            Upgrade to Pro
+            Download
           </Button>
           <Profile />
         </Stack>
