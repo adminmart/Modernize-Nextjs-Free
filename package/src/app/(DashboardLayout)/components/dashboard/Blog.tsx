@@ -7,6 +7,7 @@ import {
   Rating,
   Tooltip,
   Fab,
+  Avatar
 } from "@mui/material";
 // import img1 from "public/images/products/s4.jpg";
 // import img2 from "public/images/products/s5.jpg";
@@ -59,9 +60,12 @@ const Blog = () => {
         <Grid item xs={12} md={4} lg={3} key={index}>
           <BlankCard>
             <Typography component={Link} href="/">
-              <Image
-                src={product.photo}
-                alt="img" height={250} width={250}
+              <Avatar
+                src={product.photo} variant="square"
+                sx={{
+                  height: 250,
+                  width: '100%',
+                }}
                 
               />
             </Typography>
