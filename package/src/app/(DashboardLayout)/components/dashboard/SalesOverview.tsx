@@ -74,7 +74,7 @@ const SalesOverview = () => {
             },
         },
         tooltip: {
-            theme: theme.palette.mode === 'dark' ? 'dark' : 'light',
+            theme: 'dark',
             fillSeriesColor: false,
         },
     };
@@ -108,7 +108,7 @@ const SalesOverview = () => {
                 options={optionscolumnchart}
                 series={seriescolumnchart}
                 type="bar"
-                height="370px"
+                height={370} width={"100%"}
             />
         </DashboardCard>
     );
