@@ -74,10 +74,10 @@ npm run build
 </tr>
 <tr>
   <td>
-  NextJs 13
+  NextJs 14
   </td>
   <td>
-  NextJs 13
+  NextJs 14
   </td>
 </tr>
 <tr>
@@ -98,7 +98,7 @@ npm run build
 </tr>
 <tr>
   <td>
-  7+ Pages Template
+  6+ Pages Template
   </td>
   <td>
   65+ Page Templates
@@ -205,7 +205,7 @@ npm run build
 # Upgrade to Premium version
 
 <a target="_blank" href="https://adminmart.com/product/modernize-next-js-admin-dashboard?ref=5">
-  <img src="https://adminmart.com/wp-content/uploads/2023/03/modernize-next-js-admin-dashboard.png" alt="">
+  <img src="https://adminmart.com/wp-content/uploads/2023/03/modernize-next-js-admin-dashboard-1-min-1.png" alt="">
 </a>
 <p>
   Checkout our premium version of Modernize Next Js Admin Lite for lots more features and ready to use page templates.<br>
@@ -224,7 +224,7 @@ npm run build
 
 <!-- Licensing of Template -->
 # Licensing
-- <p>Copyright 2023 Adminmart <a href="https://adminmart.com/?ref=5">https://adminmart.com/</a></p>
+- <p>Copyright 2024 Adminmart <a href="https://adminmart.com/?ref=5">https://adminmart.com/</a></p>
 - <p>Licensed under MIT <a href="https://adminmart.com/license/?ref=5">https://adminmart.com/license/</a></p>
 
 
