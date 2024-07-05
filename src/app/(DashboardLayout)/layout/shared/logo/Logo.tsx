@@ -9,18 +9,33 @@ const LinkStyled = styled(Link)(() => ({
   display: "block",
 }));
 
-const Logo = () => {
-  return (
-    <LinkStyled href="/">
+const Logo = ({
+  height = 60,
+  width = 160,
+  redirectToHome = false,
+}: {
+  redirectToHome?: boolean;
+  height?: number;
+  width?: number;
+}) =>
+  redirectToHome ? (
+    <LinkStyled href={"/"}>
       <Image
         src="/images/logos/dark-logo.svg"
         alt="logo"
-        height={70}
-        width={174}
+        height={height}
+        width={width}
         priority
       />
     </LinkStyled>
+  ) : (
+    <Image
+      src="/images/logos/dark-logo.svg"
+      alt="logo"
+      height={height}
+      width={width}
+      priority
+    />
   );
-};
 
 export default Logo;

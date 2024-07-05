@@ -52,7 +52,7 @@ const Sidebar = ({
             {/* Logo */}
             {/* ------------------------------------------- */}
             <Box px={3}>
-              <Logo />
+              <Logo width={80} redirectToHome={true} />
             </Box>
             <Box>
               {/* ------------------------------------------- */}
@@ -83,8 +83,8 @@ const Sidebar = ({
       {/* ------------------------------------------- */}
       {/* Logo */}
       {/* ------------------------------------------- */}
-      <Box px={2}>
-        <Logo />
+      <Box px={2} display="flex" alignItems="center" justifyContent="center">
+        <Logo width={80} redirectToHome={true} />
       </Box>
       {/* ------------------------------------------- */}
       {/* Sidebar For Mobile */}
