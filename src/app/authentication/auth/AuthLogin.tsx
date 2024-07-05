@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import Link from "next/link";
 
-import CustomTextField from "@/app/(DashboardLayout)/components/forms/theme-elements/CustomTextField";
+import CustomTextField from "../../(DashboardLayout)/components/forms/theme-elements/CustomTextField";
 
 interface loginType {
   title?: string;

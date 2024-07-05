@@ -8,12 +8,12 @@ type Props = {
   title?: string;
 };
 
-const PageContainer = ({ title, description, children }: Props) => (
+const PageContainer = ({  children }: Props) => (
   <HelmetProvider>
     <div>
       <Helmet>
-        <title>{title}</title>
-        <meta name="description" content={description} />
+        <title>Dion Admin Dashboard</title>
+        <meta name="description" content={'Dion Admin Dashboard'} />
       </Helmet>
       {children}
     </div>
