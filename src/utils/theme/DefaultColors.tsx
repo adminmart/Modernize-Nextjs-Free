@@ -1,7 +1,7 @@
 import { createTheme } from "@mui/material/styles";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Noto_Sans } from "next/font/google";
 
-export const plus = Plus_Jakarta_Sans({
+export const nextFont = Noto_Sans({
   weight: ["300", "400", "500", "600", "700"],
   subsets: ["latin"],
   display: "swap",
@@ -11,38 +11,42 @@ export const plus = Plus_Jakarta_Sans({
 const baselightTheme = createTheme({
   direction: "ltr",
   palette: {
+    background: {
+      default: "#FFFDFA",
+      paper: "#FFFDFA",
+    },
     primary: {
-      main: "#5D87FF",
-      light: "#ECF2FF",
-      dark: "#4570EA",
+      main: "#0E1D31",
+      light: "#749fd7",
+      dark: "#0E1D31",
     },
     secondary: {
-      main: "#49BEFF",
-      light: "#E8F7FF",
-      dark: "#23afdb",
+      main: "#E7E8F2",
+      light: "#F5F6FA",
+      dark: "#E7E8F2",
     },
     success: {
-      main: "#13DEB9",
-      light: "#E6FFFA",
-      dark: "#02b3a9",
+      main: "#15AA2C",
+      light: "#8DF19D",
+      dark: "#15AA2C",
       contrastText: "#ffffff",
     },
     info: {
       main: "#539BFF",
-      light: "#EBF3FE",
+      light: "#539BFF",
       dark: "#1682d4",
       contrastText: "#ffffff",
     },
     error: {
-      main: "#FA896B",
-      light: "#FDEDE8",
-      dark: "#f3704d",
+      main: "#FF0000",
+      light: "##ff9999",
+      dark: "#FF0000",
       contrastText: "#ffffff",
     },
     warning: {
-      main: "#FFAE1F",
-      light: "#FEF5E5",
-      dark: "#ae8e59",
+      main: "#FF6B00",
+      light: "##ffc499",
+      dark: "#FF6B00",
       contrastText: "#ffffff",
     },
     grey: {
@@ -54,8 +58,8 @@ const baselightTheme = createTheme({
       600: "#2A3547",
     },
     text: {
-      primary: "#2A3547",
-      secondary: "#5A6A85",
+      primary: "#1C1B1E",
+      secondary: "#79767B",
     },
     action: {
       disabledBackground: "rgba(73,82,88,0.12)",
@@ -65,24 +69,24 @@ const baselightTheme = createTheme({
     divider: "#e5eaef",
   },
   typography: {
-    fontFamily: plus.style.fontFamily,
+    fontFamily: nextFont.style.fontFamily,
     h1: {
       fontWeight: 600,
       fontSize: "2.25rem",
       lineHeight: "2.75rem",
-      fontFamily: plus.style.fontFamily,
+      fontFamily: nextFont.style.fontFamily,
     },
     h2: {
       fontWeight: 600,
       fontSize: "1.875rem",
       lineHeight: "2.25rem",
-      fontFamily: plus.style.fontFamily,
+      fontFamily: nextFont.style.fontFamily,
     },
     h3: {
       fontWeight: 600,
       fontSize: "1.5rem",
       lineHeight: "1.75rem",
-      fontFamily: plus.style.fontFamily,
+      fontFamily: nextFont.style.fontFamily,
     },
     h4: {
       fontWeight: 600,
@@ -129,6 +133,12 @@ const baselightTheme = createTheme({
         ".MuiPaper-elevation9, .MuiPopover-root .MuiPaper-elevation": {
           boxShadow:
             "rgb(145 158 171 / 30%) 0px 0px 2px 0px, rgb(145 158 171 / 12%) 0px 12px 24px -4px !important",
+        },
+        "*::-webkit-scrollbar": {
+          background: "transparent",
+        },
+        "*::-webkit-scrollbar-track": {
+          background: "transparent",
         },
       },
     },

@@ -10,7 +10,7 @@ const YearlyBreakup = () => {
   // chart color
   const theme = useTheme();
   const primary = theme.palette.primary.main;
-  const primarylight = "#ecf2ff";
+  const primarylight = theme.palette.primary.light;
   const successlight = theme.palette.success.light;
 
   // chart
