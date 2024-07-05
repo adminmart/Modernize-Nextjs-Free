@@ -1,7 +1,5 @@
-const Loading = () =>{
-    return(
-        <div>Dash Loading</div>
-    )
-}
+const Loading = () => {
+  return <div>Dash Loading</div>;
+};
 
 export default Loading;

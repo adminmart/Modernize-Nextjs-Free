@@ -1,4 +1,3 @@
-
 import Link from "next/link";
 import {
   CardContent,
@@ -7,7 +6,7 @@ import {
   Rating,
   Tooltip,
   Fab,
-  Avatar
+  Avatar,
 } from "@mui/material";
 // import img1 from "public/images/products/s4.jpg";
 // import img2 from "public/images/products/s5.jpg";
@@ -22,7 +21,7 @@ const ecoCard = [
   {
     title: "Boat Headphone",
     subheader: "September 14, 2023",
-    photo: '/images/products/s4.jpg',
+    photo: "/images/products/s4.jpg",
     salesPrice: 375,
     price: 285,
     rating: 4,
@@ -30,7 +29,7 @@ const ecoCard = [
   {
     title: "MacBook Air Pro",
     subheader: "September 14, 2023",
-    photo: '/images/products/s5.jpg',
+    photo: "/images/products/s5.jpg",
     salesPrice: 650,
     price: 900,
     rating: 5,
@@ -38,7 +37,7 @@ const ecoCard = [
   {
     title: "Red Valvet Dress",
     subheader: "September 14, 2023",
-    photo: '/images/products/s7.jpg',
+    photo: "/images/products/s7.jpg",
     salesPrice: 150,
     price: 200,
     rating: 3,
@@ -46,7 +45,7 @@ const ecoCard = [
   {
     title: "Cute Soft Teddybear",
     subheader: "September 14, 2023",
-    photo: '/images/products/s11.jpg',
+    photo: "/images/products/s11.jpg",
     salesPrice: 285,
     price: 345,
     rating: 2,
@@ -61,12 +60,12 @@ const Blog = () => {
           <BlankCard>
             <Typography component={Link} href="/">
               <Avatar
-                src={product.photo} variant="square"
+                src={product.photo}
+                variant="square"
                 sx={{
                   height: 250,
-                  width: '100%',
+                  width: "100%",
                 }}
-                
               />
             </Typography>
             <Tooltip title="Add To Cart">
