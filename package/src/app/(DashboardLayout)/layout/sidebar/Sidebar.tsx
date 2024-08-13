@@ -18,6 +18,24 @@ const MSidebar = ({
 
   const sidebarWidth = "270px";
 
+  // Custom CSS for short scrollbar
+  const scrollbarStyles = {
+    '&::-webkit-scrollbar': {
+      width: '5px',
+
+    },
+    '&::-webkit-scrollbar-thumb': {
+      backgroundColor: '#888',
+      borderRadius: '15px',
+
+    },
+    '&::-webkit-scrollbar-thumb:hover': {
+      backgroundColor: '#555',
+    },
+
+  };
+
+
   if (lgUp) {
     return (
       <Box
@@ -36,6 +54,7 @@ const MSidebar = ({
           PaperProps={{
             sx: {
               boxSizing: "border-box",
+              ...scrollbarStyles,
             },
           }}
         >
@@ -82,6 +101,7 @@ const MSidebar = ({
       PaperProps={{
         sx: {
           boxShadow: (theme) => theme.shadows[8],
+          ...scrollbarStyles,
         },
       }}
     >
@@ -121,95 +141,6 @@ const MSidebar = ({
 export default MSidebar;
 
 
-// import SidebarItems from "./SidebarItems";
-// import { Upgrade } from "./Updrade";
-// import { Sidebar, Logo } from 'react-mui-sidebar';
-
-// interface ItemType {
-//   isMobileSidebarOpen: boolean;
-//   onSidebarClose: (event: React.MouseEvent<HTMLElement>) => void;
-//   isSidebarOpen: boolean;
-// }
-
-// const MSidebar = ({
-//   isMobileSidebarOpen,
-//   onSidebarClose,
-//   isSidebarOpen,
-// }: ItemType) => {
-//   const lgUp = useMediaQuery((theme: any) => theme.breakpoints.up("lg"));
 
 
-//   if (lgUp) {
-//     return (
 
-//       <Drawer
-//         anchor="left"
-
-//         onClose={onSidebarClose}
-//         open={isSidebarOpen}
-//         variant="permanent"
-//         PaperProps={{
-//           sx: {
-//             width: '270px',
-//           },
-//         }}
-//       >
-//         <Sidebar
-//           width={'270px'}
-//           collapsewidth="80px"
-//           open={isSidebarOpen}
-//           themeColor="#5d87ff"
-//           themeSecondaryColor="#49beff"
-
-//         >
-//           {/* ------------------------------------------- */}
-//           {/* Logo */}
-//           {/* ------------------------------------------- */}
-//           <Logo img="/images/logos/dark-logo.svg" />
-//           <Box>
-//             {/* ------------------------------------------- */}
-//             {/* Sidebar Items */}
-//             {/* ------------------------------------------- */}
-//             <SidebarItems />
-//             <Upgrade />
-//           </Box>
-//         </Sidebar >
-//       </Drawer>
-
-//     );
-//   }
-
-//   return (
-//     <Drawer
-//       anchor="left"
-//       open={isMobileSidebarOpen}
-//       onClose={onSidebarClose}
-//       variant="temporary"
-//       PaperProps={{
-//         sx: {
-//           width: '270px',
-//           border: '0 !important',
-//           boxShadow: (theme) => theme.shadows[8],
-//         },
-//       }}
-//     >
-//       <Sidebar
-//         width={'270px'}
-//         collapsewidth="80px"
-//         isCollapse={false}
-//         mode="light"
-//         direction="ltr"
-//         themeColor="#5d87ff"
-//         themeSecondaryColor="#49beff"
-//       >
-
-//         <Logo img="/images/logos/dark-logo.svg" />
-
-//         <SidebarItems />
-//         <Upgrade />
-//       </Sidebar>
-//     </Drawer >
-//   );
-// };
-
-// export default MSidebar;
