@@ -21,18 +21,13 @@ const MSidebar = ({
   // Custom CSS for short scrollbar
   const scrollbarStyles = {
     '&::-webkit-scrollbar': {
-      width: '5px',
+      width: '7px',
 
     },
     '&::-webkit-scrollbar-thumb': {
-      backgroundColor: '#888',
+      backgroundColor: '#eff2f7',
       borderRadius: '15px',
-
     },
-    '&::-webkit-scrollbar-thumb:hover': {
-      backgroundColor: '#555',
-    },
-
   };
 
 
