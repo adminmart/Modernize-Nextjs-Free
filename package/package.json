@@ -29,6 +29,7 @@
     "react-apexcharts": "1.4.1",
     "react-dom": "18.2.0",
     "react-helmet-async": "1.3.0",
+    "react-mui-sidebar": "^1.3.8",
     "typescript": "5.1.6"
   },
   "devDependencies": {
