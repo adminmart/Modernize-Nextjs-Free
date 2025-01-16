@@ -85,7 +85,7 @@ const AuthLogin = ({ title, subtitle, subtext }: loginType) => (
         size="large"
         fullWidth
         component={Link}
-        href="/"
+        href="/?"
         type="submit"
       >
         Sign In
