@@ -16,7 +16,7 @@ const MSidebar = ({
 }: ItemType) => {
   const lgUp = useMediaQuery((theme: any) => theme.breakpoints.up("lg"));
 
-  const sidebarWidth = "270px";
+  const sidebarWidth = "220px";
 
   // Custom CSS for short scrollbar
   const scrollbarStyles = {
@@ -62,7 +62,7 @@ const MSidebar = ({
             }}
           >
             <Sidebar
-              width={'270px'}
+              width={'210px'}
               collapsewidth="80px"
               open={isSidebarOpen}
               themeColor="#5d87ff"
@@ -72,13 +72,19 @@ const MSidebar = ({
               {/* ------------------------------------------- */}
               {/* Logo */}
               {/* ------------------------------------------- */}
-              <Logo img="/images/logos/dark-logo.svg" />
+              <img
+                src={"/images/logos/alnayzak-blue.png"}
+                alt="Logo"
+                style={{ width: '200px', marginTop: '20px' }}
+                loading="eager" // Ensures the image loads eagerly
+              />
+
               <Box>
                 {/* ------------------------------------------- */}
                 {/* Sidebar Items */}
                 {/* ------------------------------------------- */}
                 <SidebarItems />
-                <Upgrade />
+                {/* <Upgrade /> */}
               </Box>
             </Sidebar >
           </Box>
@@ -122,7 +128,7 @@ const MSidebar = ({
           {/* Sidebar Items */}
           {/* ------------------------------------------- */}
           <SidebarItems />
-          <Upgrade />
+          {/* <Upgrade /> */}
         </Sidebar>
       </Box>
       {/* ------------------------------------------- */}
@@ -134,8 +140,3 @@ const MSidebar = ({
 };
 
 export default MSidebar;
-
-
-
-
-

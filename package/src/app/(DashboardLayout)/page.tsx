@@ -9,32 +9,33 @@ import ProductPerformance from '@/app/(DashboardLayout)/components/dashboard/Pro
 import Blog from '@/app/(DashboardLayout)/components/dashboard/Blog';
 import MonthlyEarnings from '@/app/(DashboardLayout)/components/dashboard/MonthlyEarnings';
 
+
 const Dashboard = () => {
   return (
     <PageContainer title="Dashboard" description="this is Dashboard">
       <Box>
         <Grid container spacing={3}>
           <Grid item xs={12} lg={8}>
-            <SalesOverview />
+            {/* <SalesOverview /> */}
           </Grid>
           <Grid item xs={12} lg={4}>
             <Grid container spacing={3}>
               <Grid item xs={12}>
-                <YearlyBreakup />
+                {/* <YearlyBreakup /> */}
               </Grid>
               <Grid item xs={12}>
-                <MonthlyEarnings />
+                {/* <MonthlyEarnings /> */}
               </Grid>
             </Grid>
           </Grid>
           <Grid item xs={12} lg={4}>
-            <RecentTransactions />
+            {/* <RecentTransactions /> */}
           </Grid>
           <Grid item xs={12} lg={8}>
-            <ProductPerformance />
+            {/* <ProductPerformance /> */}
           </Grid>
           <Grid item xs={12}>
-            <Blog />
+            {/* <Blog /> */}
           </Grid>
         </Grid>
       </Box>

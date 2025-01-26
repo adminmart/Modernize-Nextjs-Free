@@ -23,6 +23,13 @@ const Menuitems = [
     href: "/",
   },
   {
+    id: uniqueId(),
+    title: "Forms",
+    icon: IconLayoutDashboard,
+    href: "/forms",
+  },
+
+  {
     navlabel: true,
     subheader: "Utilities",
   },

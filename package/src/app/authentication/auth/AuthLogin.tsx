@@ -26,7 +26,6 @@ const AuthLogin = ({ title, subtitle, subtext }: loginType) => (
       </Typography>
     ) : null}
 
-    {subtext}
 
     <Stack>
       <Box>
@@ -91,7 +90,7 @@ const AuthLogin = ({ title, subtitle, subtext }: loginType) => (
         Sign In
       </Button>
     </Box>
-    {subtitle}
+
   </>
 );
 

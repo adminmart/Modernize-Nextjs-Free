@@ -46,16 +46,7 @@ const Register2 = () => (
               <Logo />
             </Box>
             <AuthRegister
-              subtext={
-                <Typography
-                  variant="subtitle1"
-                  textAlign="center"
-                  color="textSecondary"
-                  mb={1}
-                >
-                  Your Social Campaigns
-                </Typography>
-              }
+
               subtitle={
                 <Stack
                   direction="row"
@@ -63,24 +54,8 @@ const Register2 = () => (
                   spacing={1}
                   mt={3}
                 >
-                  <Typography
-                    color="textSecondary"
-                    variant="h6"
-                    fontWeight="400"
-                  >
-                    Already have an Account?
-                  </Typography>
-                  <Typography
-                    component={Link}
-                    href="/authentication/login"
-                    fontWeight="500"
-                    sx={{
-                      textDecoration: "none",
-                      color: "primary.main",
-                    }}
-                  >
-                    Sign In
-                  </Typography>
+                 
+                 
                 </Stack>
               }
             />
