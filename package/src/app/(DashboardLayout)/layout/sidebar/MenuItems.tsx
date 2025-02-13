@@ -6,6 +6,10 @@ import {
   IconMoodHappy,
   IconTypography,
   IconUserPlus,
+  IconSchool,
+  IconUsers,
+  IconCalendar,
+  IconCash,
 } from "@tabler/icons-react";
 
 import { uniqueId } from "lodash";
@@ -21,6 +25,34 @@ const Menuitems = [
     title: "Dashboard",
     icon: IconLayoutDashboard,
     href: "/",
+  },
+  {
+    navlabel: true,
+    subheader: "Class Management",
+  },
+  {
+    id: uniqueId(),
+    title: "Classes",
+    icon: IconSchool,
+    href: "/class-management/classes",
+  },
+  {
+    id: uniqueId(),
+    title: "Students",
+    icon: IconUsers,
+    href: "/class-management/students",
+  },
+  {
+    id: uniqueId(),
+    title: "Timetable",
+    icon: IconCalendar,
+    href: "/class-management/timetable",
+  },
+  {
+    id: uniqueId(),
+    title: "Payments",
+    icon: IconCash,
+    href: "/class-management/payments",
   },
   {
     navlabel: true,
