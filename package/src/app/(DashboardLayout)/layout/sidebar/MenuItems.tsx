@@ -11,6 +11,7 @@ import {
   IconCalendar,
   IconCash,
   IconDoor,
+  IconChalkboard,
 } from "@tabler/icons-react";
 
 import { uniqueId } from "lodash";
@@ -39,6 +40,12 @@ const Menuitems = [
   },
   {
     id: uniqueId(),
+    title: "Teachers",
+    icon: IconChalkboard,
+    href: "/class-management/teachers",
+  },
+  {
+    id: uniqueId(),
     title: "Students",
     icon: IconUsers,
     href: "/class-management/students",
@@ -63,22 +70,6 @@ const Menuitems = [
   },
   {
     navlabel: true,
-    subheader: "Utilities",
-  },
-  {
-    id: uniqueId(),
-    title: "Typography",
-    icon: IconTypography,
-    href: "/utilities/typography",
-  },
-  {
-    id: uniqueId(),
-    title: "Shadow",
-    icon: IconCopy,
-    href: "/utilities/shadow",
-  },
-  {
-    navlabel: true,
     subheader: "Auth",
   },
   {
@@ -92,22 +83,6 @@ const Menuitems = [
     title: "Register",
     icon: IconUserPlus,
     href: "/authentication/register",
-  },
-  {
-    navlabel: true,
-    subheader: "Extra",
-  },
-  {
-    id: uniqueId(),
-    title: "Icons",
-    icon: IconMoodHappy,
-    href: "/icons",
-  },
-  {
-    id: uniqueId(),
-    title: "Sample Page",
-    icon: IconAperture,
-    href: "/sample-page",
   },
 ];
 

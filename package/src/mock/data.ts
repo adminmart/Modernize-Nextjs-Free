@@ -1,4 +1,15 @@
 // Types
+export interface Teacher {
+  id: string;
+  name: string;
+  email: string;
+  phone: string;
+  subjects: string[];
+  qualifications: string[];
+  joinDate: string;
+  status: 'active' | 'inactive';
+}
+
 export interface Student {
   id: string;
   name: string;
@@ -190,6 +201,29 @@ export const mockClasses: Class[] = [
     students: ['1', '4'],
     courseAmount: 900000,
     createdAt: Date.now() - 15 * 24 * 60 * 60 * 1000,
+  },
+];
+
+export const mockTeachers: Teacher[] = [
+  {
+    id: '1',
+    name: 'Dr. Robert Brown',
+    email: 'robert.brown@example.com',
+    phone: '+1234567894',
+    subjects: ['English'],
+    qualifications: ['PhD in English Literature', 'CELTA', 'DELTA'],
+    joinDate: '2023-09-01',
+    status: 'active',
+  },
+  {
+    id: '2',
+    name: 'Ms. Emily White',
+    email: 'emily.white@example.com',
+    phone: '+1234567895',
+    subjects: ['English'],
+    qualifications: ['MA in TESOL', 'CELTA'],
+    joinDate: '2023-10-15',
+    status: 'active',
   },
 ];
 

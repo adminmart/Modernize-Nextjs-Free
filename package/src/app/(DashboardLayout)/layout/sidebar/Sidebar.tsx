@@ -1,6 +1,5 @@
-import { useMediaQuery, Box, Drawer, styled } from "@mui/material";
+import { useMediaQuery, Box, Drawer, styled, Typography } from "@mui/material";
 import SidebarItems from "./SidebarItems";
-import { Upgrade } from "./Updrade";
 
 interface ItemType {
   isMobileSidebarOpen: boolean;
@@ -29,10 +28,7 @@ const StyledDrawer = styled(Drawer)(({ theme }) => ({
 
 const LogoWrapper = styled(Box)({
   padding: '20px 20px 0px 20px',
-  '& img': {
-    maxWidth: '100%',
-    height: 'auto',
-  },
+  textAlign: 'center',
 });
 
 const MSidebar = ({
@@ -45,11 +41,12 @@ const MSidebar = ({
   const sidebarContent = (
     <>
       <LogoWrapper>
-        <img src="/images/logos/dark-logo.svg" alt="Logo" />
+        <Typography variant="h5" sx={{ fontWeight: 'bold', color: 'primary.main' }}>
+          Innovative Centre
+        </Typography>
       </LogoWrapper>
       <Box sx={{ px: 3 }}>
         <SidebarItems />
-        <Upgrade />
       </Box>
     </>
   );
