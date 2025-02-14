@@ -6,36 +6,71 @@ import {
   CardContent,
   Typography,
   Box,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Paper,
-  Chip,
-  ToggleButtonGroup,
-  ToggleButton,
   Stack,
   IconButton,
+  List,
+  ListItem,
+  ListItemText,
+  Chip,
+  MenuItem,
+  Select,
+  FormControl,
+  InputLabel,
+  Paper,
+  Collapse,
   Tooltip,
+  useTheme,
 } from '@mui/material';
 import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
-import { mockClasses, mockCabinets, Class } from '@/mock/data';
+import { mockClasses, mockStudents, mockCabinets, Class, Student } from '@/mock/data';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import EditIcon from '@mui/icons-material/Edit';
 
-const LEVELS = ['All Levels', 'A1', 'A2', 'B1', 'B2', 'IELTS'];
+const formatCurrency = (amount: number) => {
+  return new Intl.NumberFormat('uz-UZ', {
+    style: 'currency',
+    currency: 'UZS',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(amount);
+};
 
 const Timetable = () => {
-  const [selectedLevel, setSelectedLevel] = useState('All Levels');
-  const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
-  const timeSlots = [
-    '09:00-10:30',
-    '10:45-12:15',
-    '13:00-14:30',
-    '14:45-16:15',
-    '16:30-18:00',
-  ];
+  const theme = useTheme();
+  const [selectedTeacher, setSelectedTeacher] = useState<string>('All Teachers');
+  const [expandedClasses, setExpandedClasses] = useState<string[]>([]);
+
+  const teachers = useMemo(() => {
+    const uniqueTeachers = Array.from(new Set(mockClasses.map(c => c.teacher)));
+    return ['All Teachers', ...uniqueTeachers];
+  }, []);
+
+  const filteredClasses = useMemo(() => {
+    let classes = [...mockClasses];
+    if (selectedTeacher !== 'All Teachers') {
+      classes = classes.filter(c => c.teacher === selectedTeacher);
+    }
+    return classes;
+  }, [selectedTeacher]);
+
+  const mwfClasses = useMemo(() => 
+    filteredClasses.filter(c => 
+      c.schedule.some(s => ['Monday', 'Wednesday', 'Friday'].includes(s.day))
+    ),
+    [filteredClasses]
+  );
+
+  const ttsClasses = useMemo(() => 
+    filteredClasses.filter(c => 
+      c.schedule.some(s => ['Tuesday', 'Thursday', 'Saturday'].includes(s.day))
+    ),
+    [filteredClasses]
+  );
+
+  const getStudentsForClass = (classInfo: Class) => {
+    return mockStudents.filter(student => classInfo.students.includes(student.id));
+  };
 
   const getCabinetInfo = (cabinetId: string) => {
     const cabinet = mockCabinets.find((c) => c.id === cabinetId);
@@ -45,156 +80,145 @@ const Timetable = () => {
     };
   };
 
-  const getClassStatus = (class_: Class) => {
-    const cabinet = getCabinetInfo(class_.cabinetId);
-    const studentCount = class_.students.length;
-    const remainingSpots = cabinet.capacity - studentCount;
-
-    if (remainingSpots === 0) return { label: 'Full', color: 'error' };
-    if (remainingSpots < 5) return { label: 'Near Full', color: 'warning' };
-    return { label: 'Available', color: 'success' };
-  };
-
-  const filteredClasses = useMemo(() => {
-    let classes = [...mockClasses];
-    
-    // Sort by time
-    classes.sort((a, b) => {
-      const aTime = a.schedule[0]?.startTime || '';
-      const bTime = b.schedule[0]?.startTime || '';
-      return aTime.localeCompare(bTime);
-    });
-
-    // Filter by level if not "All Levels"
-    if (selectedLevel !== 'All Levels') {
-      classes = classes.filter(c => c.name.includes(selectedLevel));
-    }
-
-    return classes;
-  }, [selectedLevel]);
-
-  const getClassForTimeSlot = (day: string, timeSlot: string) => {
-    const [slotStart] = timeSlot.split('-');
-    return filteredClasses.find((class_) =>
-      class_.schedule.some(
-        (s) => s.day === day && s.startTime === slotStart
-      )
+  const toggleClassExpansion = (classId: string) => {
+    setExpandedClasses(prev => 
+      prev.includes(classId) 
+        ? prev.filter(id => id !== classId)
+        : [...prev, classId]
     );
   };
 
-  const handleLevelChange = (event: React.MouseEvent<HTMLElement>, newLevel: string) => {
-    if (newLevel !== null) {
-      setSelectedLevel(newLevel);
-    }
+  const renderClassCard = (classInfo: Class) => {
+    const students = getStudentsForClass(classInfo);
+    const cabinet = getCabinetInfo(classInfo.cabinetId);
+    const isExpanded = expandedClasses.includes(classInfo.id);
+    const scheduleStr = classInfo.schedule
+      .map(s => `${s.day} ${s.startTime}-${s.endTime}`)
+      .join(', ');
+
+    return (
+      <Card key={classInfo.id} sx={{ mb: 2 }}>
+        <CardContent>
+          <Box display="flex" justifyContent="space-between" alignItems="center">
+            <Box>
+              <Typography variant="h6" component="div">
+                {classInfo.name}
+              </Typography>
+              <Typography color="textSecondary" variant="body2" gutterBottom>
+                {scheduleStr}
+              </Typography>
+            </Box>
+            <Stack direction="row" spacing={1}>
+              <IconButton size="small" onClick={() => toggleClassExpansion(classInfo.id)}>
+                {isExpanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+              </IconButton>
+              <IconButton size="small">
+                <EditIcon />
+              </IconButton>
+            </Stack>
+          </Box>
+
+          <Stack direction="row" spacing={1} mt={1}>
+            <Chip 
+              label={cabinet.name}
+              size="small"
+              color="primary"
+            />
+            <Chip 
+              label={`${students.length}/${cabinet.capacity} students`}
+              size="small"
+              color={students.length >= cabinet.capacity ? "error" : "success"}
+            />
+            <Chip 
+              label={formatCurrency(classInfo.courseAmount)}
+              size="small"
+              variant="outlined"
+            />
+          </Stack>
+
+          <Collapse in={isExpanded}>
+            <Box mt={2}>
+              <Typography variant="subtitle2" gutterBottom>
+                Students
+              </Typography>
+              <List dense>
+                {students.map((student) => (
+                  <ListItem
+                    key={student.id}
+                    secondaryAction={
+                      <Chip
+                        label={student.paymentStatus}
+                        size="small"
+                        color={
+                          student.paymentStatus === 'paid'
+                            ? 'success'
+                            : student.paymentStatus === 'pending'
+                            ? 'warning'
+                            : 'error'
+                        }
+                      />
+                    }
+                  >
+                    <ListItemText
+                      primary={student.name}
+                      secondary={student.phone}
+                    />
+                  </ListItem>
+                ))}
+              </List>
+            </Box>
+          </Collapse>
+        </CardContent>
+      </Card>
+    );
   };
 
   return (
-    <PageContainer title="Timetable" description="Weekly class schedule">
+    <PageContainer title="Timetable" description="Class schedule by teacher">
+      <Box sx={{ mb: 3 }}>
+        <Typography variant="h3" gutterBottom>Class Schedule</Typography>
+        <FormControl fullWidth sx={{ mb: 3 }}>
+          <InputLabel>Select Teacher</InputLabel>
+          <Select
+            value={selectedTeacher}
+            label="Select Teacher"
+            onChange={(e) => setSelectedTeacher(e.target.value)}
+          >
+            {teachers.map((teacher) => (
+              <MenuItem key={teacher} value={teacher}>
+                {teacher}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      </Box>
+
       <Grid container spacing={3}>
-        <Grid item xs={12}>
-          <Card>
-            <CardContent>
-              <Stack direction="row" justifyContent="space-between" alignItems="center" mb={3}>
-                <Typography variant="h3">Weekly Timetable</Typography>
-                <ToggleButtonGroup
-                  value={selectedLevel}
-                  exclusive
-                  onChange={handleLevelChange}
-                  aria-label="level filter"
-                  size="small"
-                >
-                  {LEVELS.map((level) => (
-                    <ToggleButton key={level} value={level}>
-                      {level}
-                    </ToggleButton>
-                  ))}
-                </ToggleButtonGroup>
-              </Stack>
-
-              <TableContainer component={Paper} sx={{ maxHeight: 'calc(100vh - 250px)' }}>
-                <Table stickyHeader>
-                  <TableHead>
-                    <TableRow>
-                      <TableCell sx={{ fontWeight: 'bold' }}>Time</TableCell>
-                      {days.map((day) => (
-                        <TableCell key={day} sx={{ fontWeight: 'bold' }}>
-                          {day}
-                        </TableCell>
-                      ))}
-                    </TableRow>
-                  </TableHead>
-                  <TableBody>
-                    {timeSlots.map((timeSlot) => (
-                      <TableRow key={timeSlot}>
-                        <TableCell sx={{ whiteSpace: 'nowrap', fontWeight: 'bold' }}>
-                          {timeSlot}
-                        </TableCell>
-                        {days.map((day) => {
-                          const class_ = getClassForTimeSlot(day, timeSlot);
-                          const cabinet = class_ ? getCabinetInfo(class_.cabinetId) : null;
-                          const status = class_ ? getClassStatus(class_) : null;
-
-                          return (
-                            <TableCell
-                              key={`${day}-${timeSlot}`}
-                              sx={{
-                                backgroundColor: class_ ? 'action.hover' : 'inherit',
-                                minWidth: '200px',
-                              }}
-                            >
-                              {class_ ? (
-                                <Box>
-                                  <Box display="flex" justifyContent="space-between" alignItems="center">
-                                    <Typography variant="subtitle2" fontWeight={600}>
-                                      {class_.name}
-                                    </Typography>
-                                    <Tooltip title="Edit Class">
-                                      <IconButton size="small">
-                                        <EditIcon fontSize="small" />
-                                      </IconButton>
-                                    </Tooltip>
-                                  </Box>
-                                  <Typography variant="body2" color="textSecondary">
-                                    {class_.teacher}
-                                  </Typography>
-                                  <Box sx={{ mt: 1, display: 'flex', gap: 1, flexWrap: 'wrap' }}>
-                                    <Chip
-                                      label={cabinet?.name}
-                                      size="small"
-                                      color="primary"
-                                    />
-                                    <Chip
-                                      label={`${class_.students.length}/${cabinet?.capacity}`}
-                                      size="small"
-                                      color={status?.color as any}
-                                    />
-                                    <Chip
-                                      label={status?.label}
-                                      size="small"
-                                      color={status?.color as any}
-                                      variant="outlined"
-                                    />
-                                  </Box>
-                                </Box>
-                              ) : (
-                                <Typography
-                                  variant="body2"
-                                  color="textSecondary"
-                                  sx={{ fontStyle: 'italic' }}
-                                >
-                                  No class scheduled
-                                </Typography>
-                              )}
-                            </TableCell>
-                          );
-                        })}
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              </TableContainer>
-            </CardContent>
-          </Card>
+        <Grid item xs={12} md={6}>
+          <Paper sx={{ p: 2, mb: { xs: 2, md: 0 } }}>
+            <Typography variant="h5" gutterBottom color="primary">
+              Monday/Wednesday/Friday
+            </Typography>
+            {mwfClasses.map(renderClassCard)}
+            {mwfClasses.length === 0 && (
+              <Typography color="textSecondary" align="center" sx={{ py: 4 }}>
+                No classes scheduled
+              </Typography>
+            )}
+          </Paper>
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <Paper sx={{ p: 2 }}>
+            <Typography variant="h5" gutterBottom color="primary">
+              Tuesday/Thursday/Saturday
+            </Typography>
+            {ttsClasses.map(renderClassCard)}
+            {ttsClasses.length === 0 && (
+              <Typography color="textSecondary" align="center" sx={{ py: 4 }}>
+                No classes scheduled
+              </Typography>
+            )}
+          </Paper>
         </Grid>
       </Grid>
     </PageContainer>

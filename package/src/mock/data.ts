@@ -14,6 +14,7 @@ export interface Class {
   name: string;
   teacher: string;
   subject: string;
+  level: 'A1' | 'A2' | 'B1' | 'B2' | 'IELTS';
   cabinetId: string;
   schedule: {
     day: string;
@@ -21,6 +22,9 @@ export interface Class {
     endTime: string;
   }[];
   students: string[]; // Array of student IDs
+  courseAmount: number;
+  createdAt: number;
+  openingDate?: string;
 }
 
 export interface Cabinet {
@@ -62,6 +66,24 @@ export const mockStudents: Student[] = [
     status: 'active',
     paymentStatus: 'pending',
   },
+  {
+    id: '3',
+    name: 'Michael Brown',
+    email: 'michael@example.com',
+    phone: '+1234567892',
+    joinDate: '2024-01-25',
+    status: 'active',
+    paymentStatus: 'paid',
+  },
+  {
+    id: '4',
+    name: 'Emma Wilson',
+    email: 'emma@example.com',
+    phone: '+1234567893',
+    joinDate: '2024-02-01',
+    status: 'active',
+    paymentStatus: 'overdue',
+  },
 ];
 
 export const mockCabinets: Cabinet[] = [
@@ -86,9 +108,10 @@ export const mockCabinets: Cabinet[] = [
 export const mockClasses: Class[] = [
   {
     id: '1',
-    name: 'Advanced Mathematics',
+    name: 'A1 English Basics',
     teacher: 'Dr. Robert Brown',
-    subject: 'Mathematics',
+    subject: 'English',
+    level: 'A1',
     cabinetId: '1',
     schedule: [
       {
@@ -101,14 +124,23 @@ export const mockClasses: Class[] = [
         startTime: '09:00',
         endTime: '10:30',
       },
+      {
+        day: 'Friday',
+        startTime: '09:00',
+        endTime: '10:30',
+      },
     ],
     students: ['1', '2'],
+    courseAmount: 500000,
+    createdAt: Date.now() - 7 * 24 * 60 * 60 * 1000,
+    openingDate: new Date().toISOString().split('T')[0],
   },
   {
     id: '2',
-    name: 'English Literature',
+    name: 'B2 Advanced English',
     teacher: 'Ms. Emily White',
     subject: 'English',
+    level: 'B2',
     cabinetId: '2',
     schedule: [
       {
@@ -121,8 +153,43 @@ export const mockClasses: Class[] = [
         startTime: '11:00',
         endTime: '12:30',
       },
+      {
+        day: 'Saturday',
+        startTime: '11:00',
+        endTime: '12:30',
+      },
     ],
-    students: ['1'],
+    students: ['3', '4'],
+    courseAmount: 700000,
+    createdAt: Date.now() - 30 * 24 * 60 * 60 * 1000,
+  },
+  {
+    id: '3',
+    name: 'IELTS Preparation',
+    teacher: 'Dr. Robert Brown',
+    subject: 'English',
+    level: 'IELTS',
+    cabinetId: '1',
+    schedule: [
+      {
+        day: 'Tuesday',
+        startTime: '09:00',
+        endTime: '10:30',
+      },
+      {
+        day: 'Thursday',
+        startTime: '09:00',
+        endTime: '10:30',
+      },
+      {
+        day: 'Saturday',
+        startTime: '09:00',
+        endTime: '10:30',
+      },
+    ],
+    students: ['1', '4'],
+    courseAmount: 900000,
+    createdAt: Date.now() - 15 * 24 * 60 * 60 * 1000,
   },
 ];
 
@@ -130,7 +197,7 @@ export const mockPayments: Payment[] = [
   {
     id: '1',
     studentId: '1',
-    amount: 500,
+    amount: 500000,
     date: '2024-02-01',
     status: 'completed',
     method: 'card',
@@ -139,7 +206,7 @@ export const mockPayments: Payment[] = [
   {
     id: '2',
     studentId: '2',
-    amount: 500,
+    amount: 500000,
     date: '2024-02-01',
     status: 'pending',
     method: 'transfer',
