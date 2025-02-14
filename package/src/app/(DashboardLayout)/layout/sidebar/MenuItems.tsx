@@ -10,6 +10,7 @@ import {
   IconUsers,
   IconCalendar,
   IconCash,
+  IconDoor,
 } from "@tabler/icons-react";
 
 import { uniqueId } from "lodash";
@@ -53,6 +54,12 @@ const Menuitems = [
     title: "Payments",
     icon: IconCash,
     href: "/class-management/payments",
+  },
+  {
+    id: uniqueId(),
+    title: "Cabinets",
+    icon: IconDoor,
+    href: "/class-management/cabinets",
   },
   {
     navlabel: true,
