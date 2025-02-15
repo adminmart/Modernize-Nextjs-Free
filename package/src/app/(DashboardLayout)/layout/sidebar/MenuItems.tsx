@@ -2,10 +2,8 @@ import {
   IconAperture,
   IconCopy,
   IconLayoutDashboard,
-  IconLogin,
   IconMoodHappy,
   IconTypography,
-  IconUserPlus,
   IconSchool,
   IconUsers,
   IconCalendar,
@@ -67,22 +65,6 @@ const Menuitems = [
     title: "Cabinets",
     icon: IconDoor,
     href: "/class-management/cabinets",
-  },
-  {
-    navlabel: true,
-    subheader: "Auth",
-  },
-  {
-    id: uniqueId(),
-    title: "Login",
-    icon: IconLogin,
-    href: "/authentication/login",
-  },
-  {
-    id: uniqueId(),
-    title: "Register",
-    icon: IconUserPlus,
-    href: "/authentication/register",
   },
 ];
 
