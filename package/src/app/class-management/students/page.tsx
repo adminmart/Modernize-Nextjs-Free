@@ -15,12 +15,30 @@ import {
   Chip,
   IconButton,
   Avatar,
+  Snackbar,
+  Alert,
 } from '@mui/material';
 import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
 import { mockStudents } from '@/mock/data';
 import { IconEdit, IconTrash } from '@tabler/icons-react';
+import { useState } from 'react';
+import StudentDialog from './StudentDialog';
+import type { Student } from '@/mock/data';
 
 const Students = () => {
+  const [students, setStudents] = useState<Student[]>(mockStudents);
+  const [selectedStudent, setSelectedStudent] = useState<Student | undefined>();
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [notification, setNotification] = useState<{
+    open: boolean;
+    message: string;
+    severity: 'success' | 'error';
+  }>({
+    open: false,
+    message: '',
+    severity: 'success',
+  });
+
   const getPaymentStatusColor = (status: string) => {
     switch (status) {
       case 'paid':
@@ -45,6 +63,63 @@ const Students = () => {
     }
   };
 
+  const handleAddStudent = () => {
+    setSelectedStudent(undefined);
+    setDialogOpen(true);
+  };
+
+  const handleEditStudent = (student: Student) => {
+    setSelectedStudent(student);
+    setDialogOpen(true);
+  };
+
+  const handleDeleteStudent = (studentId: string) => {
+    setStudents((prevStudents) =>
+      prevStudents.filter((student) => student.id !== studentId)
+    );
+    showNotification('Student deleted successfully', 'success');
+  };
+
+  const handleSaveStudent = (studentData: Partial<Student>) => {
+    if (selectedStudent) {
+      // Update existing student
+      setStudents((prevStudents) =>
+        prevStudents.map((student) =>
+          student.id === selectedStudent.id
+            ? { ...student, ...studentData }
+            : student
+        )
+      );
+      showNotification('Student updated successfully', 'success');
+    } else {
+      // Add new student
+      const newStudent: Student = {
+        id: String(Date.now()), // Generate a unique ID
+        name: studentData.name!,
+        email: studentData.email!,
+        phone: studentData.phone!,
+        joinDate: studentData.joinDate!,
+        status: studentData.status || 'active',
+        paymentStatus: 'pending',
+      };
+      setStudents((prevStudents) => [...prevStudents, newStudent]);
+      showNotification('Student added successfully', 'success');
+    }
+    setDialogOpen(false);
+  };
+
+  const showNotification = (message: string, severity: 'success' | 'error') => {
+    setNotification({
+      open: true,
+      message,
+      severity,
+    });
+  };
+
+  const handleCloseNotification = () => {
+    setNotification((prev) => ({ ...prev, open: false }));
+  };
+
   return (
     <PageContainer title="Students" description="Manage students">
       <Grid container spacing={3}>
@@ -53,7 +128,7 @@ const Students = () => {
             <CardContent>
               <Box display="flex" justifyContent="space-between" alignItems="center" mb={3}>
                 <Typography variant="h3">Students</Typography>
-                <Button variant="contained" color="primary">
+                <Button variant="contained" color="primary" onClick={handleAddStudent}>
                   Add New Student
                 </Button>
               </Box>
@@ -71,7 +146,7 @@ const Students = () => {
                     </TableRow>
                   </TableHead>
                   <TableBody>
-                    {mockStudents.map((student) => (
+                    {students.map((student) => (
                       <TableRow key={student.id}>
                         <TableCell>
                           <Box sx={{ display: 'flex', alignItems: 'center' }}>
@@ -112,10 +187,19 @@ const Students = () => {
                           />
                         </TableCell>
                         <TableCell>
-                          <IconButton color="primary" size="small" sx={{ mr: 1 }}>
+                          <IconButton
+                            color="primary"
+                            size="small"
+                            sx={{ mr: 1 }}
+                            onClick={() => handleEditStudent(student)}
+                          >
                             <IconEdit size={18} />
                           </IconButton>
-                          <IconButton color="error" size="small">
+                          <IconButton
+                            color="error"
+                            size="small"
+                            onClick={() => handleDeleteStudent(student.id)}
+                          >
                             <IconTrash size={18} />
                           </IconButton>
                         </TableCell>
@@ -128,6 +212,29 @@ const Students = () => {
           </Card>
         </Grid>
       </Grid>
+
+      <StudentDialog
+        open={dialogOpen}
+        onClose={() => setDialogOpen(false)}
+        onSave={handleSaveStudent}
+        student={selectedStudent}
+      />
+
+      <Snackbar
+        open={notification.open}
+        autoHideDuration={4000}
+        onClose={handleCloseNotification}
+        anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+      >
+        <Alert
+          onClose={handleCloseNotification}
+          severity={notification.severity}
+          variant="filled"
+          sx={{ width: '100%' }}
+        >
+          {notification.message}
+        </Alert>
+      </Snackbar>
     </PageContainer>
   );
 };

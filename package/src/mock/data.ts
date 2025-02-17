@@ -52,7 +52,7 @@ export interface Payment {
   studentId: string;
   amount: number;
   date: string;
-  status: 'completed' | 'pending' | 'failed';
+  status: 'paid' | 'unpaid';
   method: 'cash' | 'card' | 'transfer';
   description: string;
 }
@@ -233,7 +233,7 @@ export const mockPayments: Payment[] = [
     studentId: '1',
     amount: 500000,
     date: '2024-02-01',
-    status: 'completed',
+    status: 'paid',
     method: 'card',
     description: 'February Tuition Fee',
   },
@@ -242,7 +242,7 @@ export const mockPayments: Payment[] = [
     studentId: '2',
     amount: 500000,
     date: '2024-02-01',
-    status: 'pending',
+    status: 'unpaid',
     method: 'transfer',
     description: 'February Tuition Fee',
   },

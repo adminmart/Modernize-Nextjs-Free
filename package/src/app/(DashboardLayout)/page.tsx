@@ -56,7 +56,7 @@ const RecentPayments = () => (
             </Stack>
             <Typography 
               variant="subtitle1" 
-              color={payment.status === 'completed' ? 'success.main' : 'warning.main'}
+              color={payment.status === 'paid' ? 'success.main' : 'error.main'}
             >
               ${payment.amount.toLocaleString()}
             </Typography>
