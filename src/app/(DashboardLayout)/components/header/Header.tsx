@@ -9,12 +9,11 @@ import {
   useTheme,
   Avatar,
   Stack,
-  Badge,
+  Button,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import NotificationsIcon from '@mui/icons-material/Notifications';
 import EmailIcon from '@mui/icons-material/Email';
-import SearchIcon from '@mui/icons-material/Search';
+import SettingsIcon from '@mui/icons-material/Settings';
 
 export default function Header() {
   const theme = useTheme();
@@ -40,23 +39,26 @@ export default function Header() {
             <MenuIcon />
           </IconButton>
         )}
-        <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1 }}>
-          Email Insights
-        </Typography>
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          <EmailIcon sx={{ mr: 1 }} />
+          <Typography variant="h6" noWrap component="div">
+            Email Tracking Analytics
+          </Typography>
+        </Box>
+
+        <Box sx={{ flexGrow: 1 }} />
 
         <Stack direction="row" spacing={2} alignItems="center">
+          <Button
+            variant="contained"
+            color="primary"
+            size="small"
+            sx={{ borderRadius: 2 }}
+          >
+            Add Tracking Code
+          </Button>
           <IconButton color="inherit">
-            <SearchIcon />
-          </IconButton>
-          <IconButton color="inherit">
-            <Badge badgeContent={4} color="error">
-              <EmailIcon />
-            </Badge>
-          </IconButton>
-          <IconButton color="inherit">
-            <Badge badgeContent={2} color="error">
-              <NotificationsIcon />
-            </Badge>
+            <SettingsIcon />
           </IconButton>
           <Avatar
             sx={{
