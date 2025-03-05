@@ -39,10 +39,15 @@ const menuItems = [
   },
 ];
 
-export default function Sidebar() {
+interface SidebarProps {
+  isSidebarOpen?: boolean;
+  isMobileSidebarOpen?: boolean;
+  onSidebarClose?: () => void;
+}
+
+export default function Sidebar({ isMobileSidebarOpen = false, onSidebarClose }: SidebarProps) {
   const theme = useTheme();
   const lgUp = useMediaQuery(theme.breakpoints.up('lg'));
-  const [mobileOpen, setMobileOpen] = useState(false);
   const [openSettings, setOpenSettings] = useState(false);
 
   const handleSettingsClick = () => {
@@ -140,8 +145,8 @@ export default function Sidebar() {
       ) : (
         <Drawer
           variant="temporary"
-          open={mobileOpen}
-          onClose={() => setMobileOpen(false)}
+          open={isMobileSidebarOpen}
+          onClose={onSidebarClose}
           ModalProps={{
             keepMounted: true,
           }}
