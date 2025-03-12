@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from 'react';
 
 import {
   Button,
@@ -12,17 +12,17 @@ import {
   TableHead,
   TableRow,
   TextField,
-  Typography,
-} from "@mui/material";
-import Alert from "@mui/material/Alert";
-import { styled } from "@mui/material/styles";
-import axios from "axios";
+  Typography
+} from '@mui/material';
+import Alert from '@mui/material/Alert';
+import { styled } from '@mui/material/styles';
+import axios from 'axios';
 
-import CheckIcon from "@mui/icons-material/Check";
-import ContentPasteSearchIcon from "@mui/icons-material/ContentPasteSearch";
-import FileUploadIcon from "@mui/icons-material/FileUpload";
+import CheckIcon from '@mui/icons-material/Check';
+import ContentPasteSearchIcon from '@mui/icons-material/ContentPasteSearch';
+import FileUploadIcon from '@mui/icons-material/FileUpload';
 
-import InvoiceModal from "./InvoiceModal";
+import InvoiceModal from './InvoiceModal';
 
 interface ResultsI {
   id: string;
@@ -82,7 +82,7 @@ export default function InvoiceControl() {
 
     try {
       const response = await axios.post(
-        "http://localhost:3001/invoices/upload",
+        "https://ai-api-models-production.up.railway.app/invoices/upload",
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );
@@ -109,7 +109,7 @@ export default function InvoiceControl() {
     setLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:3001/invoices/search",
+        "https://ai-api-models-production.up.railway.app/invoices/search",
         {
           query,
         }

@@ -54,7 +54,7 @@ export default function ReminderComponent({ invoiceId }: Metadata) {
     setLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:3001/invoices/reminder",
+        "https://ai-api-models-production.up.railway.app/invoices/reminder",
         {
           invoiceId: invoiceId,
         }

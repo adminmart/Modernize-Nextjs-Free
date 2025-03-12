@@ -60,7 +60,7 @@ export default function InvoiceModal({
     setLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:3001/invoices/details",
+        "https://ai-api-models-production.up.railway.app/invoices/details",
         {
           invoiceId: invoiceId,
           question: query,
