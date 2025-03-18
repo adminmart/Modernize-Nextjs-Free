@@ -131,6 +131,9 @@ export default function InvoiceControl() {
       </Typography>
       {/* File Upload */}
       <Paper sx={{ p: 2, mb: 3 }}>
+        <Typography variant="body1" sx={{ mb: 2 }}>
+          Limit to 10 rows per file due to demo purposes.
+        </Typography>
         <Typography variant="h6">
           Upload Invoice <StyledSpan>*csv format</StyledSpan>
         </Typography>
