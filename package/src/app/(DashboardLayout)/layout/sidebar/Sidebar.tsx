@@ -1,7 +1,7 @@
 import { useMediaQuery, Box, Drawer } from "@mui/material";
 import SidebarItems from "./SidebarItems";
 import { Upgrade } from "./Updrade";
-import { Sidebar, Logo } from 'react-mui-sidebar';
+import { Sidebar  } from 'react-pro-sidebar';
 
 interface ItemType {
   isMobileSidebarOpen: boolean;
@@ -70,9 +70,6 @@ const MSidebar = ({
               showProfile={false}
             >
               {/* ------------------------------------------- */}
-              {/* Logo */}
-              {/* ------------------------------------------- */}
-              <Logo img="/images/logos/dark-logo.svg" />
               <Box>
                 {/* ------------------------------------------- */}
                 {/* Sidebar Items */}
@@ -114,11 +111,6 @@ const MSidebar = ({
           themeSecondaryColor="#49beff"
           showProfile={false}
         >
-          {/* ------------------------------------------- */}
-          {/* Logo */}
-          {/* ------------------------------------------- */}
-          <Logo img="/images/logos/dark-logo.svg" />
-          {/* ------------------------------------------- */}
           {/* Sidebar Items */}
           {/* ------------------------------------------- */}
           <SidebarItems />
@@ -128,7 +120,6 @@ const MSidebar = ({
       {/* ------------------------------------------- */}
       {/* Sidebar For Mobile */}
       {/* ------------------------------------------- */}
-
     </Drawer>
   );
 };
