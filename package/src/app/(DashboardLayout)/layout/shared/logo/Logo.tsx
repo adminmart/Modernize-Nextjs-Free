@@ -1,18 +1,36 @@
 import Link from "next/link";
-import { styled } from "@mui/material";
-import Image from "next/image";
+import { styled, Typography } from "@mui/material";
 
 const LinkStyled = styled(Link)(() => ({
-  height: "70px",
-  width: "180px",
-  overflow: "hidden",
-  display: "block",
+  textDecoration: "none",
+  display: "flex",
+  alignItems: "center",
 }));
 
 const Logo = () => {
   return (
     <LinkStyled href="/">
-      <Image src="/images/logos/dark-logo.svg" alt="logo" height={70} width={174} priority />
+      <Typography
+        variant="h4"
+        color="primary"
+        sx={{
+          fontWeight: 700,
+          lineHeight: 1.2,
+        }}
+      >
+        Innovative
+        <Typography
+          component="span"
+          variant="h4"
+          sx={{
+            color: "text.secondary",
+            fontWeight: 700,
+            display: "block",
+          }}
+        >
+          Centre
+        </Typography>
+      </Typography>
     </LinkStyled>
   );
 };
