@@ -57,7 +57,13 @@ const Blog = () => {
   return (
     <Grid container spacing={3}>
       {ecoCard.map((product, index) => (
-        <Grid item xs={12} md={4} lg={3} key={index}>
+        <Grid
+          key={index}
+          size={{
+            xs: 12,
+            md: 4,
+            lg: 3
+          }}>
           <BlankCard>
             <Typography component={Link} href="/">
               <Avatar

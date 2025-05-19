@@ -48,7 +48,7 @@ const SalesOverview = () => {
             width: 5,
             lineCap: "butt",
             colors: ["transparent"],
-          },
+        },
         dataLabels: {
             enabled: false,
         },
@@ -99,9 +99,9 @@ const SalesOverview = () => {
                 size="small"
                 onChange={handleChange}
             >
-                <MenuItem value={1}>March 2023</MenuItem>
-                <MenuItem value={2}>April 2023</MenuItem>
-                <MenuItem value={3}>May 2023</MenuItem>
+                <MenuItem value={1}>March 2025</MenuItem>
+                <MenuItem value={2}>April 2025</MenuItem>
+                <MenuItem value={3}>May 2025</MenuItem>
             </Select>
         }>
             <Chart

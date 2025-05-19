@@ -29,15 +29,15 @@ const Register2 = () => (
         sx={{ height: "100vh" }}
       >
         <Grid
-          item
-          xs={12}
-          sm={12}
-          lg={4}
-          xl={3}
           display="flex"
           justifyContent="center"
           alignItems="center"
-        >
+          size={{
+            xs: 12,
+            sm: 12,
+            lg: 4,
+            xl: 3
+          }}>
           <Card
             elevation={9}
             sx={{ p: 4, zIndex: 1, width: "100%", maxWidth: "500px" }}

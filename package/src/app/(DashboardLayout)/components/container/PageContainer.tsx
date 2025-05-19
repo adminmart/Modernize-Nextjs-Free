@@ -1,23 +1,23 @@
 // import { Helmet } from 'react-helmet';
-import { Helmet, HelmetProvider } from 'react-helmet-async';
+import react from 'react'
 
 
 type Props = {
   description?: string;
-  children: JSX.Element | JSX.Element[];
+  children: React.ReactNode;
   title?: string;
 };
 
 const PageContainer = ({ title, description, children }: Props) => (
-  <HelmetProvider>
-    <div>
-      <Helmet>
-        <title>{title}</title>
-        <meta name="description" content={description} />
-      </Helmet>
-      {children}
-    </div>
-  </HelmetProvider>
+
+  <div>
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    {children}
+  </div>
+
 );
 
 export default PageContainer;

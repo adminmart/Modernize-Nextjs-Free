@@ -66,7 +66,11 @@ const YearlyBreakup = () => {
     <DashboardCard title="Yearly Breakup">
       <Grid container spacing={3}>
         {/* column */}
-        <Grid item xs={7} sm={7}>
+        <Grid
+          size={{
+            xs: 7,
+            sm: 7
+          }}>
           <Typography variant="h3" fontWeight="700">
             $36,358
           </Typography>
@@ -87,7 +91,7 @@ const YearlyBreakup = () => {
                 sx={{ width: 9, height: 9, bgcolor: primary, svg: { display: 'none' } }}
               ></Avatar>
               <Typography variant="subtitle2" color="textSecondary">
-                2022
+                2024
               </Typography>
             </Stack>
             <Stack direction="row" spacing={1} alignItems="center">
@@ -95,13 +99,17 @@ const YearlyBreakup = () => {
                 sx={{ width: 9, height: 9, bgcolor: primarylight, svg: { display: 'none' } }}
               ></Avatar>
               <Typography variant="subtitle2" color="textSecondary">
-                2023
+                2025
               </Typography>
             </Stack>
           </Stack>
         </Grid>
         {/* column */}
-        <Grid item xs={5} sm={5}>
+        <Grid
+          size={{
+            xs: 5,
+            sm: 5
+          }}>
           <Chart
             options={optionscolumnchart}
             series={seriescolumnchart}

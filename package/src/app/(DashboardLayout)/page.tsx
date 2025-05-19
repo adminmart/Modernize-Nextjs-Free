@@ -14,32 +14,48 @@ const Dashboard = () => {
     <PageContainer title="Dashboard" description="this is Dashboard">
       <Box>
         <Grid container spacing={3}>
-          <Grid item xs={12} lg={8}>
+          <Grid
+            size={{
+              xs: 12,
+              lg: 8
+            }}>
             <SalesOverview />
           </Grid>
-          <Grid item xs={12} lg={4}>
+          <Grid
+            size={{
+              xs: 12,
+              lg: 4
+            }}>
             <Grid container spacing={3}>
-              <Grid item xs={12}>
+              <Grid size={12}>
                 <YearlyBreakup />
               </Grid>
-              <Grid item xs={12}>
+              <Grid size={12}>
                 <MonthlyEarnings />
               </Grid>
             </Grid>
           </Grid>
-          <Grid item xs={12} lg={4}>
+          <Grid
+            size={{
+              xs: 12,
+              lg: 4
+            }}>
             <RecentTransactions />
           </Grid>
-          <Grid item xs={12} lg={8}>
+          <Grid
+            size={{
+              xs: 12,
+              lg: 8
+            }}>
             <ProductPerformance />
           </Grid>
-          <Grid item xs={12}>
+          <Grid size={12}>
             <Blog />
           </Grid>
         </Grid>
       </Box>
     </PageContainer>
-  )
+  );
 }
 
 export default Dashboard;
