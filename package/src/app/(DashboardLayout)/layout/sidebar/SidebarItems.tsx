@@ -16,29 +16,19 @@ import { Upgrade } from "./Updrade";
 
 const renderMenuItems = (items: any, pathDirect: any) => {
 
-
-
   return items.map((item: any) => {
 
-
     const Icon = item.icon ? item.icon : IconPoint;
+
     const itemIcon = <Icon stroke={1.5} size="1.3rem" />;
 
     if (item.subheader) {
       // Display Subheader
-
       return (
-        <Box sx={{
-          margin: "0 -24px", textTransform: 'uppercase',
-
-        }
-        } key={item.subheader} >
-          <Menu
-            subHeading={item.subheader}
-            key={item.subheader}
-
-          />
-        </Box >
+        <Menu
+          subHeading={item.subheader}
+          key={item.subheader}
+        />
       );
     }
 
@@ -59,24 +49,18 @@ const renderMenuItems = (items: any, pathDirect: any) => {
     // If the item has no children, render a MenuItem
 
     return (
-      <MenuItem
-        key={item.id}
-        isSelected={pathDirect === item?.href}
-        borderRadius='8px'
-        icon={
-          item.icon ? React.createElement(item.icon, { stroke: 1.5, size: "1.3rem" }) : <IconPoint stroke={1.5} size="1.3rem" />
-        }
-        component="div"
-        link={item.href && item.href !== "" ? item.href : undefined}
-        target={item.href && item.href.startsWith("https") ? "_blank" : "_self"}
-        disabled={item.disabled}
-      >
-        <Link href={item.href} target={item.href.startsWith("https") ? "_blank" : "_self"} rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>
-          <Typography component='span' color={pathDirect === item?.href ? '#fff' : 'inherit'}>
-            {item.title}</Typography>
-        </Link>
-      </MenuItem >
-
+      <Box px={3} key={item.id}>
+        <MenuItem
+          key={item.id}
+          isSelected={pathDirect === item?.href}
+          borderRadius='8px'
+          icon={itemIcon}
+          link={item.href}
+          component={Link}
+        >
+          {item.title}
+        </MenuItem >
+      </Box>
 
     );
   });
@@ -88,15 +72,18 @@ const SidebarItems = () => {
   const pathDirect = pathname;
 
   return (
-    <Box sx={{ px: "24px", overflowX: 'hidden' }}>
-      <MUI_Sidebar width={"100%"} showProfile={false} themeColor={"#5D87FF"} themeSecondaryColor={'#49beff'}>
-        <Box sx={{ margin: "0 -24px", }}>
-          <Logo img='/images/logos/dark-logo.svg' component={Link} to="/" >Modernize</Logo>
-        </Box>
+    < >
+      <MUI_Sidebar width={"100%"} showProfile={false} themeColor={"#5D87FF"} themeSecondaryColor={'#49beff'} >
+
+        <Logo img='/images/logos/dark-logo.svg' component={Link} to="/" >Modernize</Logo>
+
         {renderMenuItems(Menuitems, pathDirect)}
+        <Box px={2}>
+          <Upgrade />
+        </Box>
       </MUI_Sidebar>
-      <Upgrade />
-    </Box>
+
+    </>
   );
 };
 export default SidebarItems;

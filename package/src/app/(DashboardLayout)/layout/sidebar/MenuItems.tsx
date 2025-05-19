@@ -13,7 +13,7 @@ import { uniqueId } from "lodash";
 const Menuitems = [
   {
     navlabel: true,
-    subheader: "Home",
+    subheader: "HOME",
   },
 
   {
@@ -24,7 +24,7 @@ const Menuitems = [
   },
   {
     navlabel: true,
-    subheader: "Utilities",
+    subheader: "UTILITIES",
   },
   {
     id: uniqueId(),
@@ -40,7 +40,7 @@ const Menuitems = [
   },
   {
     navlabel: true,
-    subheader: "Auth",
+    subheader: "AUTH",
   },
   {
     id: uniqueId(),
@@ -56,7 +56,7 @@ const Menuitems = [
   },
   {
     navlabel: true,
-    subheader: "Extra",
+    subheader: " EXTRA",
   },
   {
     id: uniqueId(),
