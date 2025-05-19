@@ -4,13 +4,13 @@ import { Card, CardContent, Typography, Stack, Box } from "@mui/material";
 type Props = {
   title?: string;
   subtitle?: string;
-  action?: JSX.Element | any;
-  footer?: JSX.Element;
-  cardheading?: string | JSX.Element;
-  headtitle?: string | JSX.Element;
-  headsubtitle?: string | JSX.Element;
-  children?: JSX.Element;
-  middlecontent?: string | JSX.Element;
+  action?: React.ReactNode | any;
+  footer?: React.ReactNode;
+  cardheading?: string | React.ReactNode;
+  headtitle?: string | React.ReactNode;
+  headsubtitle?: string | React.ReactNode;
+  children?: React.ReactNode;
+  middlecontent?: string | React.ReactNode;
 };
 
 const DashboardCard = ({

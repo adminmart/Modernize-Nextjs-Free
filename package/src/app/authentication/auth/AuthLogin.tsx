@@ -14,8 +14,8 @@ import CustomTextField from "@/app/(DashboardLayout)/components/forms/theme-elem
 
 interface loginType {
   title?: string;
-  subtitle?: JSX.Element | JSX.Element[];
-  subtext?: JSX.Element | JSX.Element[];
+  subtitle?: React.ReactNode;
+  subtext?: React.ReactNode;
 }
 
 const AuthLogin = ({ title, subtitle, subtext }: loginType) => (

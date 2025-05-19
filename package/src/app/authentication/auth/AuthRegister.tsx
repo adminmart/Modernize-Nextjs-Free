@@ -1,15 +1,15 @@
 import React from 'react';
 import { Box, Typography, Button } from '@mui/material';
-import Link  from 'next/link';
+import Link from 'next/link';
 
 import CustomTextField from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomTextField';
 import { Stack } from '@mui/system';
 
 interface registerType {
     title?: string;
-    subtitle?: JSX.Element | JSX.Element[];
-    subtext?: JSX.Element | JSX.Element[];
-  }
+    subtitle?: React.ReactNode;
+    subtext?: React.ReactNode;
+}
 
 const AuthRegister = ({ title, subtitle, subtext }: registerType) => (
     <>

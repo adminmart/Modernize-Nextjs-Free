@@ -1,7 +1,7 @@
 import { useMediaQuery, Box, Drawer } from "@mui/material";
 import SidebarItems from "./SidebarItems";
-import { Upgrade } from "./Updrade";
-import { Sidebar, Logo } from 'react-mui-sidebar';
+
+
 
 interface ItemType {
   isMobileSidebarOpen: boolean;
@@ -46,11 +46,14 @@ const MSidebar = ({
           anchor="left"
           open={isSidebarOpen}
           variant="permanent"
-          PaperProps={{
-            sx: {
-              boxSizing: "border-box",
-              ...scrollbarStyles,
-            },
+          slotProps={{
+            paper: {
+              sx: {
+                boxSizing: "border-box",
+                ...scrollbarStyles,
+                width: sidebarWidth,
+              },
+            }
           }}
         >
           {/* ------------------------------------------- */}
@@ -61,29 +64,16 @@ const MSidebar = ({
               height: "100%",
             }}
           >
-            <Sidebar
-              width={'270px'}
-              collapsewidth="80px"
-              open={isSidebarOpen}
-              themeColor="#5d87ff"
-              themeSecondaryColor="#49beff"
-              showProfile={false}
-            >
+
+            <Box>
               {/* ------------------------------------------- */}
-              {/* Logo */}
+              {/* Sidebar Items */}
               {/* ------------------------------------------- */}
-              <Logo img="/images/logos/dark-logo.svg" />
-              <Box>
-                {/* ------------------------------------------- */}
-                {/* Sidebar Items */}
-                {/* ------------------------------------------- */}
-                <SidebarItems />
-                <Upgrade />
-              </Box>
-            </Sidebar >
+              <SidebarItems />
+            </Box>
           </Box>
         </Drawer>
-      </Box>
+      </Box >
     );
   }
 
@@ -93,42 +83,28 @@ const MSidebar = ({
       open={isMobileSidebarOpen}
       onClose={onSidebarClose}
       variant="temporary"
-      PaperProps={{
-        sx: {
-          boxShadow: (theme) => theme.shadows[8],
-          ...scrollbarStyles,
-        },
+
+      slotProps={{
+        paper: {
+          sx: {
+            boxShadow: (theme) => theme.shadows[8],
+            ...scrollbarStyles,
+          },
+        }
       }}
     >
       {/* ------------------------------------------- */}
       {/* Sidebar Box */}
       {/* ------------------------------------------- */}
       <Box px={2}>
-        <Sidebar
-          width={'270px'}
-          collapsewidth="80px"
-          isCollapse={false}
-          mode="light"
-          direction="ltr"
-          themeColor="#5d87ff"
-          themeSecondaryColor="#49beff"
-          showProfile={false}
-        >
-          {/* ------------------------------------------- */}
-          {/* Logo */}
-          {/* ------------------------------------------- */}
-          <Logo img="/images/logos/dark-logo.svg" />
-          {/* ------------------------------------------- */}
-          {/* Sidebar Items */}
-          {/* ------------------------------------------- */}
-          <SidebarItems />
-          <Upgrade />
-        </Sidebar>
+        {/* ------------------------------------------- */}
+        {/* Sidebar Items */}
+        {/* ------------------------------------------- */}
+        <SidebarItems />
       </Box>
       {/* ------------------------------------------- */}
       {/* Sidebar For Mobile */}
       {/* ------------------------------------------- */}
-
     </Drawer>
   );
 };
