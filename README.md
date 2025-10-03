@@ -88,3 +88,5 @@ This project is licensed under the **MIT License** – you can use it for person
 ## 📧 Support
 
 For more info or query, visit [AdminMart](https://adminmart.com).
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
