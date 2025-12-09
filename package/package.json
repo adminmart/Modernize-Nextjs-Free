@@ -22,7 +22,7 @@
     "eslint": "9.39.1",
     "eslint-config-next": "16.0.3",
     "lodash": "^4.17.21",
-    "next": "^16.0.3",
+    "next": "16.0.7",
     "react": "^19.2.0",
     "react-apexcharts": "1.8.0",
     "react-dom": "^19.2.0",
